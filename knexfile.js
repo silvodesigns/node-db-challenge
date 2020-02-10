@@ -8,7 +8,11 @@ module.exports = {
         // generates migration files in a data/migrations/ folder
         migrations: {
             directory: './data/migrations'
+          },
+          seeds: {
+            directory: './data/seeds'
           }
+          
     
       }
     };

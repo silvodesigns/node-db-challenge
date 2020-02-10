@@ -24,19 +24,19 @@ exports.up = function(knex) {
         tbl.string('description', 255);
     })
 
-    .createTables('projects_resources', tbl => {
-        tbl.intenger('project_id')
+    .createTable('projects_resources', tbl => {
+        tbl.integer('project_id')
             .unsigned()
             .notNullable()
             .references('id')
             .inTable('projects')
 
-        tbl.intenger('resource_id')
+        tbl.integer('resource_id')
             .unsigned()
             .notNullable()
             .references('id')
             .inTable('resources')
-        tbl.primary(['projects_id', 'resource_id'])
+        tbl.primary(['project_id', 'resource_id'])
     })
   
 };
