@@ -42,5 +42,11 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
+    //remember to drop tables in reverser order
+    return knex.schema  
+        .dropTableIfExists('projects_resources')
+        .dropTableIfExists('resources')
+        .dropTableIfExists('tasks')
+        .dropTableIfExists('projects')
   
 };
