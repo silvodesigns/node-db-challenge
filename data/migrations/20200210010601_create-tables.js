@@ -17,6 +17,12 @@ exports.up = function(knex) {
             .inTable('projects')
 
     })
+
+    .createTable('resources', tbl => {
+        tbl.increments();
+        tbl.string('name', 128).notNullable();
+        tbl.string('description', 255);
+    })
   
 };
 
