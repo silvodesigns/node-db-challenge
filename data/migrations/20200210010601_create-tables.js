@@ -23,6 +23,21 @@ exports.up = function(knex) {
         tbl.string('name', 128).notNullable();
         tbl.string('description', 255);
     })
+
+    .createTables('projects_resources', tbl => {
+        tbl.intenger('project_id')
+            .unsigned()
+            .notNullable()
+            .references('id')
+            .inTable('projects')
+
+        tbl.intenger('resource_id')
+            .unsigned()
+            .notNullable()
+            .references('id')
+            .inTable('resources')
+        tbl.primary(['projects_id', 'resource_id'])
+    })
   
 };
 
