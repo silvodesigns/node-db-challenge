@@ -5,9 +5,19 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('tasks').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
+        {
+          name: "research offline applications",
+          description: " do some diggin into offline first apps",
+          project_id: 1
+        },
+
+        {
+          name: "research responsive web site",
+          description: " do some diggin into responsive apps",
+          project_id: 2
+        }
+
+       
       ]);
     });
 };
