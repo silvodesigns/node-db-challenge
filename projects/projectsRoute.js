@@ -13,7 +13,13 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    res.status(200).send("Hello from POST  Projects EndPoint")
+    projects.createPost(req.body).then(project => {
+        res.status(201);
+        res.json(project);
+    }).catch(() => {
+        res.status(500);
+        res.json({err: 'failed to post project'})
+    })
 })
 
 
