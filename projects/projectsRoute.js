@@ -12,6 +12,14 @@ router.get('/', (req, res) => {
    })
 })
 
+router.get('/:id', (req, res) => {
+    projects.findById(req.params.id).then( project => {
+        res.json(project)
+    }).catch(err => {
+        res.status(500).json({err: 'failed to get project with specified id'})
+    })
+ })
+
 router.post('/', (req, res) => {
     projects.createPost(req.body).then(project => {
         res.status(201);

@@ -2,15 +2,22 @@ const db = require('./db-config.js');
 
 module.exports ={
     findAll,
+    findById,
     createPost,
     resourcesAll,
-    createResource
+    createResource,
+    addTask
 }
 
 function findAll() {
     //find all projects
     return db('projects');
 
+}
+
+function findById(id){
+     return db('projects')
+            .where('id', id)
 }
 
 function createPost(project){
@@ -26,5 +33,11 @@ function resourcesAll(){
 
 function createResource(resource){
     return db('resources')
-        .insert(resource)
+        .insert(resource);
+}
+
+function addTask(task) {
+    return db('tasks')
+         .insert(task)
+
 }
